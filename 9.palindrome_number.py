@@ -18,7 +18,7 @@ Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 """
 
-class Solution:
+class Solution1:
     def isPalindrome(self, x):
         """
         :type x: int
@@ -34,6 +34,30 @@ class Solution:
             return False
 
 
+class Solution2:
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x < 0:
+            return False
+
+        div = 1
+        while x/div >= 10:
+            div *= 10
+        while x != 0:
+            left = x / div
+            right = x % 10
+            if left != right:
+                return False
+            x = (x % div) / 10
+            div /= 100
+        return True
+
 if __name__ == '__main__':
-    sol = Solution()
-    print(sol.isPalindrome(1213))
+    sol1 = Solution1()
+    print(sol1.isPalindrome(1213))
+
+    sol2 = Solution2()
+    print(sol1.isPalindrome(1213))
