@@ -22,7 +22,6 @@ class Solution:
         self.generate(n, n, "", result)
         return result
 
-
     def generate(self, left, right, str, result):
         if left == 0 and right == 0:
             result.append(str)
@@ -31,3 +30,8 @@ class Solution:
             self.generate(left - 1, right, str + "(", result)
         if right > left:
             self.generate(left, right - 1, str + ")", result)
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    print(sol.generateParenthesis(3))
