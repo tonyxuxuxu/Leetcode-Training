@@ -19,7 +19,7 @@ For the purpose of this problem, we will return 0 when needle is an empty string
 """
 
 
-class Solution:
+class Solution1:
     def strStr(self, haystack, needle):
         """
         :type haystack: str
@@ -28,9 +28,21 @@ class Solution:
         """
         return haystack.find(needle)
 
+class Solution2:
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+
+        for i in range(0, len(haystack) - len(needle)+1):
+            if haystack[i:i+len(needle)] == needle:
+                return i
+        return -1
 
 if __name__ == '__main__':
-    sol = Solution()
+    sol = Solution2()
     haystack = 'hello'
     needle = 'll'
-    print(sol.strStr(haystack,needle))
+    print(sol.strStr(haystack, needle))
