@@ -1,6 +1,5 @@
 from __future__ import print_function
 
-
 def selection_sort(collection):
 
     length = len(collection)
