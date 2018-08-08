@@ -18,4 +18,13 @@ class Solution(object):
         :rtype: int
         """
 
-        return len(s.split()[-1])
+#        return len(s.split()[-1])
+        length = len(s)
+        index = length - 1
+        count = 0
+        while index >= 0 and s[index] == ' ':
+            index -= 1
+        while index >= 0 and s[index] != ' ':
+            index -= 1
+            count += 1
+        return count
