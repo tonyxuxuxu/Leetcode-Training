@@ -32,6 +32,12 @@ class Solution(object):
                 h = heights[stack.pop()]
                 w = i - stack[-1] - 1
                 ans = max(ans, h * w)
+                print(ans, stack, h*w, h, w)
             stack.append(i)
         heights.pop()
         return ans
+
+if __name__ == '__main__':
+    input = [2,1,5,6,2,3]
+    sol = Solution()
+    print(sol.largestRectangleArea(input))
