@@ -25,15 +25,15 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def buildTree(self, preorder, inorder):
+    def buildTree(self, postorder, inorder):
         """
         :type preorder: List[int]
         :type inorder: List[int]
         :rtype: TreeNode
         """
         if inorder:
-            ind = inorder.index(preorder.pop(0))
+            ind = inorder.index(postorder.pop())
             root = TreeNode(inorder[ind])
-            root.left = self.buildTree(preorder, inorder[0: ind])
-            root.right = self.buildTree(preorder, inorder[ind+1:])
+            root.right = self.buildTree(inorder[ind + 1:], postorder)
+            root.left = self.buildTree(inorder[:ind], postorder)
             return root
